@@ -66,4 +66,4 @@ module RedmineExtendedIssueRelations
   end
 end
 
-AutoCompletesController.send(:include, RedmineExtendedIssueRelations::AutoCompletesControllerPatch)
+Issue.send(:include, RedmineExtendedIssueRelations::IssueModelPatch)
