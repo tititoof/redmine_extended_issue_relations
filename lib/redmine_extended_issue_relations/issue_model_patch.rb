@@ -4,8 +4,6 @@ module RedmineExtendedIssueRelations
     def self.included(base)
       base.class_eval do
          prepend ClassMethods
-
-         extend NewClassMethods
       end
     end
 
@@ -13,7 +11,7 @@ module RedmineExtendedIssueRelations
       def workflow_rule_by_attribute(user=nil)
         return @workflow_rule_by_attribute if @workflow_rule_by_attribute && user.nil?
 
-        roles = roles_for_axn_workflow(user || User.current)
+        roles = roles_for_workflow(user || User.current)
         return {} if roles.empty?
 
         result = {}
@@ -58,10 +56,8 @@ module RedmineExtendedIssueRelations
         @workflow_rule_by_attribute = result if user.nil?
         result
       end
-    end
 
-    module NewClassMethods
-      def roles_for_axn_workflow(user)
+      def roles_for_workflow(user)
         roles = user.roles_for_project(project)
         roles.select(&:consider_workflow?)
       end
