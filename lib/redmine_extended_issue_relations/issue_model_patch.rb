@@ -58,7 +58,7 @@ module RedmineExtendedIssueRelations
         result
       end
 
-      def roles_for_workflow(user)
+      def roles_for_axn_workflow(user)
         roles = user.roles_for_project(project)
         roles.select(&:consider_workflow?)
       end
