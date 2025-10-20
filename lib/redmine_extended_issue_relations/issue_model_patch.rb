@@ -58,8 +58,8 @@ module RedmineExtendedIssueRelations
         result
       end
 
-      def roles_for_axn_workflow(user)
-        roles = user.admin ? Role.all.to_a : user.roles_for_project(project)
+      def roles_for_workflow(user)
+        roles = user.roles_for_project(project)
         roles.select(&:consider_workflow?)
       end
     end
