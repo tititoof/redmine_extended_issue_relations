@@ -6,7 +6,7 @@ Redmine::Plugin.register :redmine_extended_issue_relations do
   name 'Redmine Extended Issue Relations'
   author 'Christophe Hartmann'
   description 'Affiche et recherche les projets dans l’autocomplete des demandes liées'
-  version '0.2.2'
+  version '0.2.3'
   url 'https://github.com/tititoof/redmine_extended_issue_relations'
   author_url 'https://github.com/tititoof'
 
